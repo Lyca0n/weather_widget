@@ -1,0 +1,44 @@
+.side-menu-layout {
+    align-items: flex-start;
+    justify-content: space-between;
+    display: flex;  
+    flex-direction: row;
+    height: auto; 
+    width: auto; 
+    max-width: 1920px; 
+    max-height: 100vh;
+    @media (max-width: $desktop-breakpoint) {
+      flex-direction: column;
+    }
+    
+    /* This aligns items to the end line on main-axis */  
+  }
+  .side-menu-layout__controls{
+    >* {display: block;}
+    flex-grow: 1;
+    max-width: 20%;
+    order: 1;    
+    margin-right: 1.6rem;
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 90%;
+    }
+  }
+
+  .side-menu-layout__controls__item{
+    font-weight: 400;
+    font-size: $l-size;
+    padding: 0 0 $s-size 0;
+  }
+
+  .side-menu-layout__controls__item--active{
+    color: $orange;    
+  }
+   
+  .side-menu-layout__content{         
+    border-radius: 3px;
+    text-align: center;
+    order:2;
+    flex-grow: 3;
+    max-width: 80%;   
+  }
+  

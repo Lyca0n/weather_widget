@@ -1,0 +1,45 @@
+.landing{
+    height: 92vh;
+    background-image: url('/images/bg.png');    
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    border-bottom: 2rem solid $light-red;    
+}
+
+.landing__content{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;    
+    padding-bottom: $l-size;
+}
+
+.landing__title{
+    h1{
+        margin: 0;
+    }
+    color:$dark-grey;
+    padding: $xl-size 0 $l-size 0  ;
+    font-size: $font-size-xlarge;
+
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 100%;
+        font-size: $font-size-medium;
+    }
+}
+
+.landing__logo{    
+    max-width: 50%;
+    padding: $l-size 0;
+    margin: 0 ;
+    display: block;
+
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 100%;
+    }
+}
+
+.landing__container{
+    background-color: rgba(253,249,249,0.93);    
+    border-radius: 12px;
+}

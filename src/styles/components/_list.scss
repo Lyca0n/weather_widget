@@ -1,0 +1,77 @@
+.list-header {
+  background: $off-white;
+  border: 1px solid darken($off-white, 7%);
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size $m-size;
+  border: none;
+  font-weight: 600;
+}
+
+.list-body {
+  margin-bottom: $m-size;
+  @media (min-width: $desktop-breakpoint) {
+    margin-bottom: $l-size;
+  }
+  box-shadow: 0 24px 60px rgba(0,0,0,0.07);    
+}
+
+.list-item {
+  border: none;  
+  color: $dark-grey;
+  display: flex;
+  flex-direction: column;
+  padding: $s-size;
+  text-decoration: none;
+  text-align: left;
+    /* This timing applies on the way IN */
+    transition-timing-function: ease-out;
+
+    /* A little slower on the way in */
+    transition: 0.25s;
+    
+    /* Move into place */
+    transform: translateY(0);
+  
+  &:hover {
+    background: $off-white;
+  }
+  @media (min-width: $desktop-breakpoint) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: $m-size;
+  }
+}
+
+.list-item--message {
+  align-items: center;
+  color: $orange;
+  justify-content: center;
+  padding: $m-size;
+  &:hover {
+    background: none;
+  }
+}
+
+.list-item__title {
+  margin: 0;
+  word-break: break-all;    
+}
+
+.list-item__sub-title {  
+  font-size: $font-size-small;
+}
+
+.list-item__data {
+  margin: $s-size 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: $desktop-breakpoint) {
+    margin: 0;
+    padding-left: $s-size;
+  }
+  >*{
+    margin: $s-size;
+  }  
+}

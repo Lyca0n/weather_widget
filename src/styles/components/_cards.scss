@@ -1,0 +1,55 @@
+.cards__container{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 100%;
+    }
+}
+
+.card{
+	flex-grow: 1;
+	max-width: 32%;
+    height: auto;
+    margin: $s-size 0 ;
+    padding: $s-size;
+    border-radius: 6px;    
+    box-shadow: 0 40px 60px rgba(0,0,0,0.1);    
+    word-break: break-word;
+    &:nth-child(3n){
+        border-top:6px solid $pink;
+    }
+    &:nth-child(3n+1){
+        border-top:6px solid $orange;
+    }
+    &:nth-child(3n+2){
+        border-top:6px solid $red;
+    }
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 100%;
+    }
+}
+
+.card--sliding{    
+    max-width: 49%;    
+    color:$off-white;
+    font-weight: 600;
+    &:nth-child(3n+1){                
+        background-color: rgba($pink,.9);
+        border-top: none;
+    }
+    &:nth-child(3n+2){
+        background-color: rgba($orange,.9);
+        border-top: none;
+    }    
+    @media (max-width: $desktop-breakpoint) {
+        max-width: 100%;
+    }
+}
+
+.card__sweep-control{
+    color:$off-white;
+    font-weight: 900;
+    display: flex;
+    align-content: space-between;
+}

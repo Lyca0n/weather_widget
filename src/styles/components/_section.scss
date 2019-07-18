@@ -1,0 +1,11 @@
+.section{
+    margin-top: $l-size;
+    padding-top: $xl-size;
+}
+
+.section__title{
+    background :transparent;
+    color:$orange;
+    font-weight: 600;
+    font-size: $l-size;
+}
