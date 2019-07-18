@@ -18,7 +18,7 @@ class WeatherWidget extends React.Component {
 
   handleDays = (e)=>{
     e.persist();
-    this.setState(()=>({days: e.target.value}));
+    this.setState(()=>({days:parseInt(e.target.value,10)}));
   }
   
   handleCity = (e)=>{
@@ -30,14 +30,14 @@ class WeatherWidget extends React.Component {
     console.log(this.state); 
     const {cities} = this.props;
     return (
-      <form className="form" >
+      <form className="form form--inline" >
         <select
           className="select"    
           onChange={this.handleCity}
         >
           <option>Select City</option>
           {cities.length > 0 && cities.map((elm,_)=>(
-            <option key={_}>{elm.name +','+ elm.country}</option>
+            <option key={_} value={elm.name +','+ elm.country}>{elm.name}</option>
           ))} 
         </select>
         <select
@@ -50,6 +50,7 @@ class WeatherWidget extends React.Component {
           <option value={4}>4</option>          
           <option value={5}>5</option>          
         </select>
+        <button className="button">Get Forecast</button>
       </form>
     );
   }
