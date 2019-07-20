@@ -36,7 +36,7 @@ class WeatherWidget extends React.Component {
     const { cities, forecast } = this.props;
     const {selectedCity }= this.state;    
     const prep = forecast.length>0 && averageByDate(forecast);
-    console.log(prep);
+    console.log(averageByDate(forecast));
     return (
       <div>
         <form className="form form--inline" onSubmit={this.onSubmit}>
@@ -68,11 +68,13 @@ class WeatherWidget extends React.Component {
             ))}                        
         </div>        
         <div className="list-body">
-        
-          {prep && prep.map((elm)=>(
-            <div>{elm.temp}</div>
+        <div className="list-item">
+          {prep && Object.keys(prep).map((elm,_)=>(
+            <div key={_}>{prep[elm].reduce((acc,read)=>(
+              acc = acc + read.temp
+            )/prep[elm].length)} °C</div>
           ))}
-        
+          </div>
         </div>
       </div>
 

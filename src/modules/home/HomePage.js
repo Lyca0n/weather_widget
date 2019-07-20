@@ -1,6 +1,6 @@
 import React from 'react';
 import Splash from '../common/Loader';
-import  WeatherWidget  from './WeatherWidget';
+import WeatherWidget from './WeatherWidget';
 
 const HomePage = () => (
     <div className="page-container">
@@ -9,20 +9,10 @@ const HomePage = () => (
                 <div className="section__title">
                     A HOME PAGE
                 </div>
-                <div className="cards__container">
-                    <div className="card">
-                        <h4>ONE</h4>
-                        <WeatherWidget />
+                <h4>Weather</h4>
+                <WeatherWidget />
 
-                    </div>
-                    <div className="card">
-                        <h4>TWO</h4>
 
-                    </div>
-                    <div className="card">
-                        <h4>THREE</h4>
-                    </div>
-                </div>
             </div>
         </div>
 

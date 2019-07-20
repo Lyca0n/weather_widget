@@ -24,13 +24,13 @@ export const countBy = (objectArray, property) =>{
 
 export const averageByDate = (objectArray) => {  
   return objectArray.reduce((a, b) => {    
-    const date = moment.unix(b.dt);
+    const date = moment.unix(b.dt).utc();
     const datelbl = date.format('YYYY MM DD');    
-    if(!a[datelbl]){}    
-    a[datelbl]={};    
-    for (let k in b.main) {      
-        a[datelbl][k] = (  a[datelbl][k] || 0) + b.main[k];            
-         
+    if(!a[datelbl]){
+      a[datelbl]=[]; 
+      a[datelbl].push(b.main)         
+    }else{
+      a[datelbl].push(b.main)         
     }
     return a;
   }, {});
