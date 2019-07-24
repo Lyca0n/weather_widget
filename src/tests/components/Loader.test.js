@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import LoadingPage from '../../components/LoadingPage';
+import Loader from '../../modules/common/Loader';
 
 test('should correctly render LoadingPage', () => {
-  const wrapper = shallow(<LoadingPage />);
+  const wrapper = shallow(<Loader />);
   expect(wrapper).toMatchSnapshot();
 });

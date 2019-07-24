@@ -13,9 +13,7 @@ const jsx =(
         <AppRouter />
     </Provider>    
 );
-ReactDOM.render(jsx, document.getElementById('app'));   
 
-/*
 let hasRendered = false;
 const renderApp =()=>{
     if(!hasRendered){
@@ -27,4 +25,3 @@ const renderApp =()=>{
 ReactDOM.render(<Loader />, document.getElementById('app'));
 
 renderApp();
-*/

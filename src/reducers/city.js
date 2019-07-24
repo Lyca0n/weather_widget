@@ -1,6 +1,6 @@
 import * as constants from '../config/constants';
 
-const cityReducerDefaultState = {
+export const cityReducerDefaultState = {
   entity: {},
   entities: [],
   loading: false

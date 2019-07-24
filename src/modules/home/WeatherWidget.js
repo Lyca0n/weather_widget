@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 import { fetchByCity as fetchForecast } from '../../actions/forecast';
 import { fetchAll as fetchCities } from '../../actions/city';
-import { averageBy, averageByDate } from '../../selectors/weather_prep';
+import { avgForecast } from '../../selectors/weather_prep';
 
 class WeatherWidget extends React.Component {
   constructor(props) {
@@ -32,11 +32,16 @@ class WeatherWidget extends React.Component {
     this.props.fetchForecast(this.state.selectedCity);
   }
 
-  render() {    
+  render() {
     const { cities, forecast } = this.props;
-    const {selectedCity }= this.state;    
-    const prep = forecast.length>0 && averageByDate(forecast);
-    console.log(averageByDate(forecast));
+    const { selectedCity } = this.state; 
+    let forecastPrep = null;
+    if (forecast.length > 0) {
+      forecastPrep = avgForecast(forecast)
+      forecastPrep.data= forecastPrep.data.slice(0,this.state.days)
+      forecastPrep.header= forecastPrep.header.slice(0,this.state.days)
+    }
+
     return (
       <div>
         <form className="form form--inline" onSubmit={this.onSubmit}>
@@ -52,6 +57,7 @@ class WeatherWidget extends React.Component {
           <select
             className="select"
             onChange={this.handleDays}
+            value={this.state.days}
           >
             <option value={1}>1</option>
             <option value={2}>2</option>
@@ -62,18 +68,20 @@ class WeatherWidget extends React.Component {
           <button className="button">Get Forecast</button>
         </form>
         <h4>{selectedCity && selectedCity}</h4>
-        <div className="list-header">            
-            {prep && Object.keys(prep).map((val)=>(
-              <div>{val}</div>
-            ))}                        
-        </div>        
+        <div className="list-header">
+          {forecastPrep ? (forecastPrep.header.map((val) => (
+            <div>{val}</div>
+          ))):(<div>No city selected</div>)}
+        </div>
         <div className="list-body">
-        <div className="list-item">
-          {prep && Object.keys(prep).map((elm,_)=>(
-            <div key={_}>{prep[elm].reduce((acc,read)=>(
-              acc = acc + read.temp
-            )/prep[elm].length)} °C</div>
-          ))}
+          <div className="list-item">
+            {forecastPrep ? (Object.values(forecastPrep.data).map((elm, _) => (
+              <div>
+              <div key={_}><b>Temp</b> {elm.temp.toFixed(2)} °C</div>
+              <div key={"max"+_}><b>Max</b> {elm.temp_max.toFixed(2)} °C</div>
+              <div key={"min"+_}><b>Min</b> {elm.temp_min.toFixed(2)} °C</div>
+              </div>
+            ))) : (<div>{"Select a city to get the weather"}</div>)}
           </div>
         </div>
       </div>
