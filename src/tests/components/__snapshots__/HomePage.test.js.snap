@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render DashboardPage correctly 1`] = `
+<div
+  className="page-container"
+>
+  <div
+    className="section"
+  >
+    <div
+      className="content-container"
+    >
+      <div
+        className="section__title"
+      >
+        A HOME PAGE
+      </div>
+      <h4>
+        Weather
+      </h4>
+      <Connect(WeatherWidget) />
+    </div>
+  </div>
+</div>
+`;

@@ -1,4 +1,4 @@
-import cityReducer from '../../reducers/city';
+import cityReducer, {cityReducerDefaultState} from '../../reducers/city';
 import * as constants from '../../config/constants';
 
 test('should set entities', () => {
@@ -7,8 +7,8 @@ test('should set entities', () => {
     payload:[
       {name:'chihuahua',country:'MX'}
     ]};
-  const state = cityReducer(undefined, action);
-  console.log(state);
+  const state = cityReducer(cityReducerDefaultState, action);  
+
   expect(state.entities).toBe(action.payload);
 });
 
